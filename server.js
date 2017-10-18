@@ -1,11 +1,11 @@
-import express from 'express';
-import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
-import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
-import bodyParser from 'body-parser';
-import cors from 'cors';
+const express = require('express');
+const { graphiqlExpress, graphqlExpress } = require('apollo-server-express');
+const { makeExecutableSchema, addMockFunctionsToSchema } = require('graphql-tools');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 
-import Schema from './data/schema';
-import Mocks from './data/mocks';
+const Schema = require('./data/schema');
+const Mocks = require('./data/mocks');
 
 const GRAPHQL_PORT = process.env.PORT || 7000;
 const app = express();

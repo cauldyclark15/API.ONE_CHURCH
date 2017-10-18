@@ -2,4 +2,4 @@ const Mocks = {
   String: () => 'It works',
 };
 
-export default Mocks;
+module.exports = Mocks;

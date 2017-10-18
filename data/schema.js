@@ -7,4 +7,4 @@ const Schema = [
   }`,
 ];
 
-export default Schema;
+module.exports = Schema;
