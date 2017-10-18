@@ -2,7 +2,6 @@ import express from 'express';
 import { graphiqlExpress, graphqlExpress } from 'apollo-server-express';
 import { makeExecutableSchema, addMockFunctionsToSchema } from 'graphql-tools';
 import bodyParser from 'body-parser';
-import { createServer } from 'http';
 import cors from 'cors';
 
 import Schema from './data/schema';
@@ -32,8 +31,6 @@ app.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql',
 }));
 
-const graphQLServer = createServer(app);
-
-graphQLServer.listen(GRAPHQL_PORT, () => {
+app.listen(GRAPHQL_PORT, () => {
   console.log(`Server running at port: ${GRAPHQL_PORT}`);
 });
