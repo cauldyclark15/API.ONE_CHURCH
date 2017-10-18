@@ -10,6 +10,7 @@ import Mocks from './data/mocks';
 
 const GRAPHQL_PORT = process.env.PORT || 7000;
 const app = express();
+const graphQLServer = createServer(app);
 
 const executableSchema = makeExecutableSchema({
   typeDefs: Schema,
@@ -31,8 +32,6 @@ app.use('/graphql', bodyParser.json(), graphqlExpress({
 app.use('/graphiql', graphiqlExpress({
   endpointURL: '/graphql',
 }));
-
-const graphQLServer = createServer(app);
 
 graphQLServer.listen(GRAPHQL_PORT, () => {
   console.log(`Server running at port: ${GRAPHQL_PORT}`);
